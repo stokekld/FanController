@@ -1,0 +1,1 @@
+int insertar(char *path, char *string);
