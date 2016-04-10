@@ -20,6 +20,6 @@ int leeTemp()
 	temp[1] = fgetc(fd);
 
 	real = (temp[0] - '0') * 10 + (temp[1] - '0');
-
+	fclose(fd);
 	return real;
 }
