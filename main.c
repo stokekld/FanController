@@ -15,12 +15,12 @@ char *GPIO = "/sys/class/gpio/";
 //char *GPIO = "./debug/sys/class/gpio/";
 char *TEMP = "/sys/class/thermal/thermal_zone0/temp";
 
-#define TEMPMAX 50
-#define TEMPMIN 45
+#define TEMPMAX 45 //Temperatura maxima RPi2
+#define TEMPMIN 40 //Temperatura minima RPi2
 
 void main()
-{
-	int pin = 1, temp, status = 0;
+{	/*Usamos el GPIO21 que corresponde a el pin 40 del conector*/
+	int pin = 21, temp, status = 0;
 
 
 	reservaPin(pin);
