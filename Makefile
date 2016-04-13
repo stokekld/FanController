@@ -27,7 +27,7 @@ TEMP_SAL=temperatura.o
 
 MAIN=main.c
 MAIN_DEP=$(MAIN) $(RESERVA_SAL) $(DIRECCION_SAL) $(INSERTAR_SAL) $(VALUES_SAL) $(TEMP_SAL)
-MAIN_SAL=gpio
+MAIN_SAL=fanController
 
 all: $(MAIN_SAL)
 
