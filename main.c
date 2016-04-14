@@ -10,9 +10,8 @@
 /**
 * Variable globales
 */
-int DEBUG = 1;
+int DEBUG = 0;
 char *GPIO = "/sys/class/gpio/";
-//char *GPIO = "./debug/sys/class/gpio/";
 char *TEMP = "/sys/class/thermal/thermal_zone0/temp";
 
 #define TEMPMAX 45 //Temperatura maxima RPi2
