@@ -13,7 +13,7 @@ Dentro del archivo *main.c* se encuentran algunas variables que pueden establece
 
 ### Inicio del comando desde el encendido de la tarjeta
 
-Para que el comando inicie desde el encencido de la tarjeta es necesario hacer lo siguiente:
+Para que el comando inicie desde el encendido de la tarjeta es necesario hacer lo siguiente:
 
 + Copiar el comando en el directorio */etc/init.d/*.
 + Ejecutar el comando *update-rc.d* de la siguiente manera.
