@@ -27,13 +27,17 @@
 */
 int reservaPin(int pin)
 {
+	// Cadena para path de archivo
 	char path[100];
-	char cadena[10];
+	char pinString[10];
 
+	// Escribiendo en la variable el path del archivo para reservar
 	sprintf(path, "%s%s", GPIO, EXPORT);
-	sprintf(cadena, "%d", pin);
+	// Convierte el pin a string para insertarlo en el archivo para reservar
+	sprintf(pinString, "%d", pin);
 
-	insertar(path, cadena);
+	// Inserta en archivo
+	insertar(path, pinString);
 }
 
 /**
@@ -41,11 +45,15 @@ int reservaPin(int pin)
 */
 int liberaPin(int pin)
 {
+	// Cadena para path de archivo
 	char path[100];
-	char cadena[10];
+	char pinString[10];
 
+	// Escribiendo en la variable el path del archivo para liberar
 	sprintf(path, "%s%s", GPIO, UNEXPORT);
-	sprintf(cadena, "%d", pin);
+	// Convierte el pin a string para insertarlo en el archivo para liberar
+	sprintf(pinString, "%d", pin);
 
-	insertar(path, cadena);
+	// Inserta en archivo
+	insertar(path, pinString);
 }

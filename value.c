@@ -24,13 +24,17 @@
 */
 int setValue(int pin, int value)
 {
+	// Cadena para path de archivo
 	char path[100];
-	char cadena[2];
+	char valueString[2];
 
+	// Escribiendo en la variable el path del archivo para insertar el valor
 	sprintf(path, "%sgpio%d/%s", GPIO, pin, "value");
-	sprintf(cadena, "%d", value);
+	// Convierte el valor a string para insertarlo en el archivo
+	sprintf(valueString, "%d", value);
 
-	insertar(path, cadena);
+	// inserta valor
+	insertar(path, valueString);
 }
 
 /**
@@ -38,8 +42,10 @@ int setValue(int pin, int value)
 */
 int getValue(int pin)
 {
+	// Cadena para path de archivo
 	char path[100];
 
+	// Escribiendo en la variable el path del archivo para obtener el valor
 	sprintf(path, "%sgpio%d/%s", GPIO, pin, "value");
 
 	FILE *fd;
@@ -52,6 +58,7 @@ int getValue(int pin)
 		return -1;		
 	}
 
+	// Retornando el valor como entero
 	return fgetc(fd) - '0';
 
 }

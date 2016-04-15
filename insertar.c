@@ -33,6 +33,7 @@ int insertar(char *path, char *string)
 		exit(0);		
 	}
 
+	// Inserta cadena al archivo
 	fprintf(fd, "%s\n", string);
 	fclose(fd);
 	

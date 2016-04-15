@@ -1,3 +1,4 @@
+# Compilador
 CC=gcc
 
 INSERTAR=insertar.c
