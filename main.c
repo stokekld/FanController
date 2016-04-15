@@ -29,7 +29,7 @@ void main()
 	while(1)
 	{
 		temp = leeTemp();
-		printf("%d\n", temp);
+//		printf("%d\n", temp);
 
 		if(temp >= TEMPMAX)
 		{
