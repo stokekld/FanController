@@ -1,0 +1,17 @@
+[Unit]
+SourcePath=/etc/init.d/fanController
+Description=Fan Controller
+
+[Service]
+Type=forking
+Restart=always
+TimeoutSec=infinity
+IgnoreSIGPIPE=no
+KillMode=process
+GuessMainPID=no
+RemainAfterExit=yes
+ExecStart=/etc/init.d/fanController start
+ExecStop=/etc/init.d/fanController stop
+
+[Install]
+WantedBy=multi-user.target
