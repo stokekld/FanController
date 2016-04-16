@@ -16,10 +16,12 @@ Dentro del archivo *main.c* se encuentran algunas variables que pueden establece
 Para que el comando inicie desde el encendido de la tarjeta es necesario hacer lo siguiente:
 
 + Copiar el comando en el directorio */etc/init.d/*.
-+ Ejecutar el comando *update-rc.d* de la siguiente manera.
++ copiar el archivo fanController.service a */etc/systemd/system*.
++ Ejecutar el comando *systemctl start fanController.service* de la siguiente manera.
++ 
 
 	```
-	# update-rc.d comando defaults
+	# sudo systemctl start fanController.service
 	```
 
 ### Especificaciones Técnicas
