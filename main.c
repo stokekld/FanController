@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+//Nota: Los archivos que se incluyen podrian estar en subcarpetas para tener un directorio mas limpio
 #include "reservacion.h"
 #include "direccion.h"
 #include "value.h"
