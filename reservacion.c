@@ -21,21 +21,18 @@
 #include "reservacion.h"
 #include "insertar.h"
 
-/**
-* Reserva el pin del gpio
-*/
+/////////////////////////////////////////////////////////////////////////////
+//  Function: int reservaPin(int pin)
+//  Input:    número de pin
+//  Output:   none
+//  Overview: Genera cadena para reservar pin de los GPIOs e insertar en archivo
+/////////////////////////////////////////////////////////////////////////////
 int reservaPin(int pin)
 {
-	// Cadena para path de archivo
 	char path[100];
 	char pinString[10];
-
-	// Escribiendo en la variable el path del archivo para reservar
 	sprintf(path, "%s%s", GPIO, EXPORT);
-	// Convierte el pin a string para insertarlo en el archivo para reservar
 	sprintf(pinString, "%d", pin);
-
-	// Inserta en archivo
 	insertar(path, pinString);
 }
 
