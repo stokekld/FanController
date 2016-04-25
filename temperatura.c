@@ -17,6 +17,13 @@
 
 #include "temperatura.h"
 
+
+/////////////////////////////////////////////////////////////////////////////
+//  Function: leeTemp()
+//  Input:    none
+//  Output:   int del valor leido de temperatura o -1 si hay error al leer archivo
+//  Overview: Lee la temperatura del archivo con path TEMP y regresa su valor en int
+/////////////////////////////////////////////////////////////////////////////
 int leeTemp()
 {
 	FILE *fd;
