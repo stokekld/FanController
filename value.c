@@ -33,28 +33,27 @@ int setValue(int pin, int value)
 	insertar(path, valueString);
 }
 
-/**
-* Obtiene un valor en el pin
-*/
+
+/////////////////////////////////////////////////////////////////////////////
+//  Function: int getValue(int pin)
+//  Input:    número de pin
+//  Output:   valor int del pin ó -1 si hay error
+//  Overview: Obtiene valor ("1" o "0") del GPIO
+/////////////////////////////////////////////////////////////////////////////
 int getValue(int pin)
 {
-	// Cadena para path de archivo
+
 	char path[100];
-
-	// Escribiendo en la variable el path del archivo para obtener el valor
+	
 	sprintf(path, "%sgpio%d/%s", GPIO, pin, "value");
-
 	FILE *fd;
-
 	fd = fopen(path, "r");
-
 	if (!fd)
 	{
 		printf("no existe el archivo\n");
 		return -1;		
 	}
 
-	// Retornando el valor como entero
 	return fgetc(fd) - '0';
 
 }
