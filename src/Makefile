@@ -1,28 +1,29 @@
 # Compilador
 CC=gcc
+INCLUDE_DIR=./include
 
 INSERTAR=insertar.c
-INSERTAR_HEAD=insertar.h
+INSERTAR_HEAD=$(INCLUDE_DIR)/insertar.h
 INSERTAR_DEP=$(INSERTAR) $(INSERTAR_HEAD)
 INSERTAR_SAL=insertar.o
 
 RESERVA=reservacion.c
-RESERVA_HEAD=reservacion.h
+RESERVA_HEAD=$(INCLUDE_DIR)/reservacion.h
 RESERVA_DEP=$(RESERVA) $(RESERVA_HEAD)
 RESERVA_SAL=reservacion.o
 
 DIRECCION=direccion.c
-DIRECCION_HEAD=direccion.h
+DIRECCION_HEAD=$(INCLUDE_DIR)/direccion.h
 DIRECCION_DEP=$(DIRECCION) $(DIRECCION_HEAD)
 DIRECCION_SAL=direccion.o
 
 VALUES=value.c
-VALUES_HEAD=value.h
+VALUES_HEAD=$(INCLUDE_DIR)/value.h
 VALUES_DEP=$(VALUES) $(VALUES_HEAD)
 VALUES_SAL=value.o
 
 TEMP=temperatura.c
-TEMP_HEAD=temperatura.h
+TEMP_HEAD=$(INCLUDE_DIR)/temperatura.h
 TEMP_DEP=$(TEMP) $(TEMP_HEAD)
 TEMP_SAL=temperatura.o
 
@@ -33,22 +34,22 @@ MAIN_SAL=fanController
 all: $(MAIN_SAL)
 
 $(MAIN_SAL):  $(MAIN_DEP)
-	$(CC) $(MAIN_DEP) -o $(MAIN_SAL)
+	$(CC) -I $(INCLUDE_DIR) $(MAIN_DEP) -o $(MAIN_SAL)
 
 $(INSERTAR_SAL): $(INSERTAR_DEP)
-	$(CC) -c $(INSERTAR) -o $(INSERTAR_SAL)
+	$(CC) -I $(INCLUDE_DIR) -c $(INSERTAR) -o $(INSERTAR_SAL)
 
 $(VALUES_SAL): $(VALUES_DEP)
-	$(CC) -c $(VALUES) -o $(VALUES_SAL)
+	$(CC) -I $(INCLUDE_DIR) -c $(VALUES) -o $(VALUES_SAL)
 
 $(TEMP_SAL): $(TEMP_DEP)
-	$(CC) -c $(TEMP) -o $(TEMP_SAL)
+	$(CC) -I $(INCLUDE_DIR) -c $(TEMP) -o $(TEMP_SAL)
 
 $(RESERVA_SAL): $(RESERVA_DEP)
-	$(CC) -c $(RESERVA) -o $(RESERVA_SAL)
+	$(CC) -I $(INCLUDE_DIR) -c $(RESERVA) -o $(RESERVA_SAL)
 
 $(DIRECCION_SAL): $(DIRECCION_DEP)
-	$(CC) -c $(DIRECCION) -o $(DIRECCION_SAL)
+	$(CC) -I $(INCLUDE_DIR) -c $(DIRECCION) -o $(DIRECCION_SAL)
 
 clean:
 	rm $(MAIN_SAL) $(RESERVA_SAL) $(DIRECCION_SAL) $(INSERTAR_SAL) $(TEMP_SAL) $(VALUES_SAL)
