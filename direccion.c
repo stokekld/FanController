@@ -18,18 +18,15 @@
 #include "direccion.h"
 #include "insertar.h"
 
-/**
-* Inserta la dirección del pin,
-* puede ser in, out.
-*/
+/////////////////////////////////////////////////////////////////////////////
+//  Function: int setDireccion(int pin, char *direction)
+//  Input:    número de pin y cadena direccion ("in" o "out")
+//  Output:   none
+//  Overview: Genera cadena para configurar direccion de pin de los GPIOs e insertar en su respectivo archivo
+/////////////////////////////////////////////////////////////////////////////
 int setDireccion(int pin, char *direction)
 {
-	// Cadena para path
 	char path[100];
-
-	// Escribiendo en variable el path al archivo direccion
 	sprintf(path, "%sgpio%d/%s", GPIO, pin, "direction");
-
-	// Inserta direccion en el archivo
 	insertar(path, direction);
 }
