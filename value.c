@@ -18,21 +18,18 @@
 #include "value.h"
 #include "insertar.h"
 
-/**
-* Inserta un valor en el pin
-*/
+/////////////////////////////////////////////////////////////////////////////
+//  Function: int setValue(int pin, int value)
+//  Input:    número de pin, valor del pin
+//  Output:   none
+//  Overview: Inserta valor ("1" o "0") en el GPIO
+/////////////////////////////////////////////////////////////////////////////
 int setValue(int pin, int value)
 {
-	// Cadena para path de archivo
 	char path[100];
 	char valueString[2];
-
-	// Escribiendo en la variable el path del archivo para insertar el valor
 	sprintf(path, "%sgpio%d/%s", GPIO, pin, "value");
-	// Convierte el valor a string para insertarlo en el archivo
 	sprintf(valueString, "%d", value);
-
-	// inserta valor
 	insertar(path, valueString);
 }
 
