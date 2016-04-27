@@ -22,9 +22,12 @@
 #include "reservacion.h"
 #include "insertar.h"
 
-/**
-* Reserva el pin del gpio
-*/
+/////////////////////////////////////////////////////////////////////////////
+//  Function: int reservaPin(int pin)
+//  Input:    número de pin
+//  Output:   none
+//  Overview: Genera cadena para reservar pin de los GPIOs e insertar en archivo
+/////////////////////////////////////////////////////////////////////////////
 int reservaPin(int pin)
 {
 	// Cadena para path de archivo
