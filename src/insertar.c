@@ -17,10 +17,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**
-* Inserta un string a un archivo, 
-* si no existe sale completamente
-*/
+/////////////////////////////////////////////////////////////////////////////
+//  Function: int insertar(char *path, char *string)
+//  Input:    apuntador a cadena de caracteres path y string
+//  Output:   none
+//  Overview: Inserta un string a un archivo, si no existe sale del programa
+/////////////////////////////////////////////////////////////////////////////
 int insertar(char *path, char *string)
 {
 	FILE *fd;
@@ -32,8 +34,6 @@ int insertar(char *path, char *string)
 		printf("no existe el archivo\n");
 		exit(0);		
 	}
-
-	// Inserta cadena al archivo
 	fprintf(fd, "%s\n", string);
 	fclose(fd);
 	
