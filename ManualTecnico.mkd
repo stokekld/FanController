@@ -1,5 +1,5 @@
 # MANUAL TECNICO PARA FANCONTROLLER (*version raspberry Pi 2*)
-Consulta la version para [HummingBoard](https://github.com/arca1405/FanController/blob/Hummingboard/README.md)
+Consulta la version para [HummingBoard](https://github.com/stokekld/FanController/blob/Hummingboard/ManualTecnico.mkd)
 
 
 <IMG src=https://github.com/stokekld/FanController/blob/RPi2/images/DSC_0157.JPG width="480" height="270"/>
@@ -7,7 +7,7 @@ Consulta la version para [HummingBoard](https://github.com/arca1405/FanControlle
 
 Resumen
 =======
-<p align="justify">Este manual describe el funcionamiento y operación de un sistema de control de ventilación autosuficiente para las mini computadoras: **Raspberry Pi 2** y **HummingBoard** </p>
+<p align="justify">Este manual describe el funcionamiento y operación de un sistema de control de ventilación autosuficiente para las mini computadoras: <b>Raspberry Pi 2</b> y <b>HummingBoard</b> </p>
 
 **Carlos Acosta, Jesús Flores, Roberto Guerrero y Rodrigo Galeano**
 
@@ -57,7 +57,7 @@ Hardware
 El sistema de ventilación para ambas placas es de un ventilador que es conectado a cada una para enfriar al mismo sistema. Su objetivo es que no permita el sobrecalentamiento del mismo, evitando así, la prematura degradación de los componentes.</p>
 
 <p align="justify">
-El *Fan Controller* requiere del uso de un GPIO de la tarjeta. Dadas las limitaciones de corriente que pueden proveer los GPIOS, de aproximadamente 12 mA a 3.3 v, es necesario alimentar el ventilador con los pines de +5v y GND, ya que el ventilador consume una corriente de 120 mA. Para esto se usa un transistor N2222 y una resistencia de 6.2K ohms conectada entre la base del transistor y el GPIO para limitar la corriente.</p>
+El *Fan Controller* requiere del uso de un GPIO de la tarjeta. Dadas las limitaciones de corriente que pueden proveer los GPIOS, de aproximadamente 12 mA a 3.3 v, es necesario alimentar el ventilador con los pines de +5v y GND, ya que el ventilador consume una corriente de 120 mA. Para esto se usa un transistor N2222 y una resistencia de 220 ohms conectada entre la base del transistor y el GPIO para limitar la corriente.</p>
 <p align="justify">
 Al alimentar el GPIO el transistor se va a saturación dejando pasar corriente entre emisor y colector,alimentando así al ventilador con 5v.</p>
 <p align="justify">
