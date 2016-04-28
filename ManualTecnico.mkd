@@ -1,0 +1,119 @@
+# MANUAL TECNICO PARA FANCONTROLLER (*version raspberry Pi 2*)
+Consulta la version para [HummingBoard](https://github.com/arca1405/FanController/blob/Hummingboard/README.md)
+
+
+<IMG src=https://github.com/arca1405/FanController/blob/RPi2/images/DSC_0157.JPG width="480" height="270"/>
+
+
+Resumen
+=======
+<p align="justify">Este manual describe el funcionamiento y operación de un sistema de control de ventilación autosuficiente para las mini computadoras: **Raspberry Pi 2** y **HummingBoard** </p>
+
+**Carlos Acosta, Jesús Flores, Roberto Guerrero y Rodrigo Galeano**
+
+Diplomado “Linux Embebido”
+
+Introducción
+============
+
+<p align="justify">
+En la actualidad los sistemas embebidos son parte inerente de nuestro entorno porque hacen nuestra vida más fácil al automatizar muchas tareas. Además que la mayoria de veces ni siquiera los notamos fisícamente debido a su tamaño e integración de los dispositivos. </p>
+<p align="justify">
+Sin embargo, no todas las aplicaciones de los embebidos son las mismas lo que hace que los recursos y el consumo de potencia difiera en cada dispositivo.</p>
+<p align="justify">
+Desde el diseño de nuestro embebido podemos decidir si va a contar con un sistema de enfriamento para garantizar un mejor desempeño, así como mayor confianza de operación o podemos mejorar un sistema ya implementado en el que experimentamos un sobrecalentamioento del mismo, poniendo en riesgo nuestros componentes. Cual sea el caso por el que este aquí, este documento, te ayudará a entender como funciona nuestro
+sistema de enfriamento para la Raspberry Pi 2 y la HummingBoard.</p>
+<p align="justify">
+Cabe señalar que cada sistema es independiente, pero quisimos implementar ambas ideas en dos placas distintas para observar y comparar el proceso de diseño, asi como los resultados de ambos.</p>
+
+
+## ¡Empezamos!
+
+Descripción Estructural
+=======================
+
+Software
+--------
+<p align="justify">
+El software que ejecuta FantController es un programa escrito en lenguaje C, cuyo código fuente se encuentra alojado en el repositorio de este proyecto. </p>
+
+Se puede consultar en el siguiente enlace:
+
+https://github.com/stokekld/FanController/tree/RPi2
+
+<p align="justify">
+Para que el comando inicie desde el encendido de la tarjeta es necesario hacer lo siguiente:</p>
+
+1. Copiar el comando en el directorio /etc/init.d/.
+2. Ejecutar el comando update-rc.d de la siguiente manera:
+
+    * \# update-rc.d comando defaults
+
+Hardware
+--------
+<p align="justify">
+El sistema de ventilación para ambas placas es de un ventilador que es conectado a cada una para enfriar al mismo sistema. Su objetivo es que no permita el sobrecalentamiento del mismo, evitando así, la prematura degradación de los componentes.</p>
+
+<p align="justify">
+El *Fan Controller* requiere del uso de un GPIO de la tarjeta. Dadas las limitaciones de corriente que pueden proveer los GPIOS, de aproximadamente 12 mA a 3.3 v, es necesario alimentar el ventilador con los pines de +5v y GND, ya que el ventilador consume una corriente de 120 mA. Para esto se usa un transistor N2222 y una resistencia de 6.2K ohms conectada entre la base del transistor y el GPIO para limitar la corriente.</p>
+<p align="justify">
+Al alimentar el GPIO el transistor se va a saturación dejando pasar corriente entre emisor y colector,alimentando así al ventilador con 5v.</p>
+<p align="justify">
+Las adecuaciones de la caja se quedan a consideración del usuario ya que dependen de la forma de la caja.</p>
+
+Materiales:
+
+-   Ventilador de 25mm x 25mm a 5v 120 mA
+
+-   Transistor NPN N2222
+
+-   Resistencia de 6.2K ohms
+
+Los esquemáticos de la HB y RPi2 se muestran en la siguiente página.:
+
+Descripción Funcional
+=====================
+
+Operacion
+---------
+<p align="justify">
+El encendido del sistema de ventilación es automático desde que se carga el OS en el embebido. Por lo que la única indicación de operación para que funcione el sistema es que se energice correctamente el embebido con su fuente de alimentación correspondiente (RPi2 o HB).</p>
+
+Funcionamiento
+--------------
+<p align="justify">
+Cuando se tiene una temperatura mayor a 50C,
+FanController activa el ventilador para enfriar el embebido. Al descender la temperatura a 45C, desactiva el ventilador. Esto se repite mientras el embebido se encuentre encendido.</p>
+
+Glosario
+========
+
+<p align="justify">   **Esquemático:** Diagrama que describe las conexiones de los circuitos implementados para el FanControler.</p>
+
+**FanController:** Sistema de control de Ventilación
+
+<p align="justify"> **GPIO:** (General Purpose Input/Output, Entrada/Salida de Propósito General) es un pin genérico en un chip, cuyo comportamiento (incluyendo si es un pin de entrada o salida) se puede controlar (programar) por el usuario en tiempo de ejecución.</p>
+
+<p align="justify">**HB:** HUMMINGBOARD-I2, cuenta con un i.MX6 Dual Lite, dos núcleos 800Mbps y 1 GB de RAM.</p>
+
+**OS:** Sistema operativo del embebido
+
+<p align="justify">**RPi2:** Raspberry Pi 2 Model B, cuenta con un Broadcom BCM2836, cuatro núcleos a 900 MHz y 1 GB de RAM</p>
+
+**TEMP:** Es el archivo donde se puede verificar la temperatura del procesador.
+
+**TEMPMAX:** Es la temperatura máxima donde empieza a funcionar el ventilador.
+
+**TEMPMIN:** Es la temperatura mínima donde se apaga
+    el ventilador.
+
+Referencias
+===========
+
+1.  Raspberry, *RaspbBerry Pi 2, Specifications*,
+    available at:
+    <span>https://www.raspberrypi.org/products/raspberry-pi-2-model-b/</span>.
+
+2.  Solid Run, *HummingBoard Specifications*,
+    available at:
+    <span>https://www.solid-run.com/freescale-imx6-family/hummingboard\hummingboard-specifications/</span>.
