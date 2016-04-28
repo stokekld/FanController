@@ -59,7 +59,7 @@ Hardware
 El sistema de ventilación para ambas placas es de un ventilador que es conectado a cada una para enfriar al mismo sistema. Su objetivo es que no permita el sobrecalentamiento del mismo, evitando así, la prematura degradación de los componentes.</p>
 
 <p align="justify">
-El *Fan Controller* requiere del uso de un GPIO de la tarjeta. Dadas las limitaciones de corriente que pueden proveer los GPIOS, de aproximadamente 12 mA a 3.3 v, es necesario alimentar el ventilador con los pines de +5v y GND, ya que el ventilador consume una corriente de 120 mA. Para esto se usa un transistor N2222 y una resistencia de 6.2Kohms conectada entre la base del transistor y el GPIO para limitar la corriente.</p>
+El *Fan Controller* requiere del uso de un GPIO de la tarjeta. Dadas las limitaciones de corriente que pueden proveer los GPIOS, de aproximadamente 12 mA a 3.3 v, es necesario alimentar el ventilador con los pines de +5v y GND, ya que el ventilador consume una corriente de 120 mA. Para esto se usa un transistor N2222 y una resistencia de 6.2 Kohms conectada entre la base del transistor y el GPIO para limitar la corriente.</p>
 <p align="justify">
 Al alimentar el GPIO el transistor se va a saturación dejando pasar corriente entre emisor y colector,alimentando así al ventilador con 5v.</p>
 <p align="justify">
@@ -71,7 +71,7 @@ Materiales:
 
 -   Transistor NPN N2222
 
--   Resistencia de 6.2 kohms
+-   Resistencia de 6.2 Kohms
 
 El diagrama esquematico se muestra a continuacion:
 
