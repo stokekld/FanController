@@ -1,10 +1,12 @@
 # FanController
 
-Es un comando básico para el control de un ventilador dependiendo de la tempreratura del procesador de la tarjeta.
+<p align="justify">Es un comando básico para el control de un ventilador dependiendo de la tempreratura del procesador de la tarjeta.</p>
+
+Visita el manual tecnico para la [Raspberry pi 2](https://github.com/stokekld/FanController/blob/RPi2/ManualTecnico.mkd)
 
 ### Variables importantes
 
-Dentro del archivo *main.c* se encuentran algunas variables que pueden establecerse para el buen funcionamiento, como son:
+<p align="justify">Dentro del archivo *main.c* se encuentran algunas variables que pueden establecerse para el buen funcionamiento, como son:</p>
 
 + **GPIO**: Es el directorio donde se configura el *gpio* de la tarjeta.
 + **TEMP**: Es el archivo donde se puede verificar la temperatura del procesador.
