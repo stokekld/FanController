@@ -15,6 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #include "reservacion.h"
 #include "direccion.h"
@@ -34,8 +35,12 @@ char *TEMP = "/sys/class/thermal/thermal_zone0/temp";
 
 void main()
 {	/*Usamos el GPIO21 que corresponde a el pin 40 del conector*/
-	int pin = 21, temp, status = 0;
 
+	// Haciendo demonio
+	if (fork()) exit(0);
+	if (fork()) exit(0);
+
+	int pin = 21, temp, status = 0;
 
 	reservaPin(pin);
 	setDireccion(pin, "out");
