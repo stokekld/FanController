@@ -27,7 +27,7 @@
 */
 int DEBUG = 0;
 char *GPIO = "/sys/class/gpio/";
-char *TEMP = "/sys/class/thermal/thermal_zone0/temp";
+char *TEMP ="/sys/fan_controller/sensor/temp";// "/sys/class/thermal/thermal_zone0/temp";
 
 #define TEMPMAX 50
 #define TEMPMIN 45
