@@ -26,3 +26,6 @@ Para que el comando inicie desde el encendido de la tarjeta es necesario hacer l
 	```
 	# sudo systemctl start fanController.service
 	```
+
+
+
